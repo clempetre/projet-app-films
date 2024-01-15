@@ -21,7 +21,7 @@ const FavoritesScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 0,
   },
   // Autres styles si nécessaire
 });

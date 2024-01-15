@@ -26,7 +26,7 @@ export const WatchedProvider = ({ children }) => {
 
   const addWatched = async movie => {
     if (!watched.find(m => m.id === movie.id)) {
-      const newWatched = [...watched, movie];
+      const newWatched = [...watched, { ...movie, dateWatched: new Date().toISOString() }]; // Ajoutez la dateWatched ici
       setWatched(newWatched);
       await AsyncStorage.setItem('watched', JSON.stringify(newWatched));
     }

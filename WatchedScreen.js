@@ -47,7 +47,8 @@ const WatchedScreen = () => {
         renderItem={({ item }) => (
           <MovieCard
             movie={item}
-            itemWidth={itemWidth} // Passez la largeur calculée à votre composant MovieCard
+            itemWidth={itemWidth}
+             // Passez la largeur calculée à votre composant MovieCard
           />
         )}
       />
@@ -58,7 +59,7 @@ const WatchedScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 10,
   },
   headerText: {
     fontSize: 16,
