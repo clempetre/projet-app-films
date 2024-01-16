@@ -36,21 +36,26 @@ const WatchedScreen = () => {
   // Calculez la largeur des éléments de la liste pour toujours occuper la moitié de l'écran
   const itemWidth = width / 2;
 
+  // Ajouter un élément factice si le nombre d'éléments est impair
+  const watchedWithDummy = [...watched];
+  if (watched.length % 2 !== 0) {
+    watchedWithDummy.push({ isDummy: true });
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>{`Nombre de films vus : ${watched.length}`}</Text>
       <Text style={styles.totalMinutesText}>{`Durée totale regardée : ${totalMinutesWatched} minutes`}</Text>
       <FlatList
-        data={watched}
+        data={watchedWithDummy}
         numColumns={2}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <MovieCard
-            movie={item}
-            itemWidth={itemWidth}
-             // Passez la largeur calculée à votre composant MovieCard
-          />
-        )}
+        keyExtractor={(item, index) => item.id ? item.id.toString() : `dummy-${index}`}
+        renderItem={({ item }) => {
+          if (item.isDummy) {
+            return <View style={{ width: itemWidth, height: 0 }} />; // Espace réservé pour l'élément factice
+          }
+          return <MovieCard movie={item} itemWidth={itemWidth} />;
+        }}
       />
     </View>
   );
