@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "projet-app-films",
+    "name": "Films&Cie",
     "slug": "projet-app-films",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.clempetre.projetappfilms"
     },
     "web": {
       "favicon": "./assets/favicon.png"
