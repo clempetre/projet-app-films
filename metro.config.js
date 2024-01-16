@@ -1,22 +1,9 @@
-const { getDefaultConfig } = require('@react-native/metro-config');
+const { getDefaultConfig } = require('@expo/metro-config');
 
-module.exports = (async () => {
-  const {
-    resolver: { sourceExts, assetExts },
-  } = await getDefaultConfig();
+const defaultConfig = getDefaultConfig(__dirname);
 
-  return {
-    transformer: {
-      getTransformOptions: async () => ({
-        transform: {
-          experimentalImportSupport: false,
-          inlineRequires: false,
-        },
-      }),
-    },
-    resolver: {
-      assetExts,
-      sourceExts,
-    },
-  };
-})();
+// Vous pouvez personnaliser la configuration ici si nécessaire
+// Par exemple :
+// defaultConfig.resolver.assetExts.push('svg');
+
+module.exports = defaultConfig;
